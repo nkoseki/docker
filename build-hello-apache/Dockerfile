@@ -11,10 +11,6 @@ RUN apk --update --no-cache add bash apache2 apache2-ssl
 #RUN apk add --no-cache net-tools
 #RUN apk add --no-cache nmap-nping
 
-
-#ADD gethost.sh /tmp/gethost.sh
-#RUN chmod u+x /tmp/gethost.sh
-
 COPY --chmod=755 <<EOT /entrypoint.sh
 #!/bin/bash
 
@@ -28,5 +24,5 @@ EOT
 # run httpd foreground
 #CMD ["httpd", "-D", "FOREGROUND"]
 
-# exec 
+# exec script
 ENTRYPOINT ["/entrypoint.sh"]
