@@ -1,0 +1,15 @@
+docker build -t test1:1.0 .
+docker images
+
+------
+docker rm test1
+docker rmi test1:1.0
+------
+
+# ditだと、バックグランドで起動できる
+docker run -dit --name test1 -p 8080:80 test1:1.0
+docker ps
+
+# containerにアタッチ
+docker exec -it test1 /bin/bash
+
